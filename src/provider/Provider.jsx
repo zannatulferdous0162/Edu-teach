@@ -4,7 +4,7 @@ import { auth } from '../firebase/firebase.config';
 import axios from 'axios';
 
 
-export const authContext=createContext(null)
+// export const authContext=createContext(null)
 
 const Provider = ({children}) => {
     const [user,setUser]=useState(null)
