@@ -5,7 +5,7 @@ import SetTeacher from '../hooks/SetTeacher';
 
 
 const Dashboard = () => {
-    // const  [isAdmin] =SetAdmin();
+    const  [isAdmin] =SetAdmin();
     const  [isTeacher] =SetTeacher();
     return (
         <div>
