@@ -7,7 +7,7 @@ import SetTeacher from '../../hooks/SetTeacher';
 
 const NavBar = () => {
   const { user,logOut } = useContext(authContext)
-  // const [isAdmin]=SetAdmin()
+  const [isAdmin]=SetAdmin()
   const [isTeacher]=SetTeacher()
   let nav = <>
 
