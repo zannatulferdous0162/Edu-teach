@@ -10,7 +10,7 @@ import img3 from '../../assets/banner/img3-1c5d6480.png';
 
 const Banner = () => {
     return (
-        <div className='z-0 py-2'>
+        // <div className='z-0 py-2'>
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
