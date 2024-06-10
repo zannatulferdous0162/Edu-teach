@@ -5,7 +5,7 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const ManageUser = () => {
     const [users,refetch]=SetUser()
-    const [axiosSecure]=UseAxiosSecure()
+    // const [axiosSecure]=UseAxiosSecure()
     const handelStatusChange=(ID)=>{
       axiosSecure.patch(`/user/${ID}`).then(data=>{
         console.log(data.data)
