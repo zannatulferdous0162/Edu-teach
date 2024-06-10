@@ -7,7 +7,7 @@ import SetAdmin from '../hooks/SetAdmin';
 import Loading from '../Components/Loading/Loading';
 
 const AdminPrivate = ({children}) => {
-    const [isAdmin,isAdminLoading]=SetAdmin()
+   //  const [isAdmin,isAdminLoading]=SetAdmin()
     const { user, loading } = useContext(authContext);
     if (loading||isAdminLoading) {
         return <>
