@@ -9,7 +9,7 @@ import { authContext } from '../provider/Provider';
 import Loading from '../Components/Loading/Loading';
 
 const TeacherPrivate = ({children}) => {
-   //  const [isTeacher,isTeacherLoading]=SetTeacher()
+    const [isTeacher,isTeacherLoading]=SetTeacher()
     const { user, loading } = useContext(authContext);
     if (loading||isTeacherLoading) {
         return <>
