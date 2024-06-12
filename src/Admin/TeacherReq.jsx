@@ -33,41 +33,83 @@ const TeacherReq = () => {
     }
     return (
         <div>
-            
-            <div className='grid lg:grid-cols-3 grid-cols-1'>
-                {
-                    techreq.map(req=>(
-                        <div key={req._id} className="card bg-base-100 shadow-xl">
-                        <figure><img className='h-[200px]' src={req.image} alt="" /></figure>
-                        <div className="card-body">
-                          <p className='text-xl text-blue-500'>{req.name}</p>
-                          <h2 className="card-title">{req.title}</h2>
-                          <p>{req.experience}</p>
-                          <p>Email: {req.email}</p>
-                          <p>Status: {req.status}</p>
-                          <div className="card-actions justify-end">
-                         {
-                            req.status=='Rejected'?<></>:<>
-                               {
-                               req.status=='Accpted'?<button  className="btn btn-success" onClick={()=>handelAccped(req._id)}>Accepted</button>:<button  className="btn btn-primary" onClick={()=>handelAccped(req._id,req.email)}>Accept</button>
-                            }
-                            </>
-                         }
-                               {
-                            req.status=='Accpted'?<></>:<>
-                               {
-                               req.status=='Rejected'?<button  className="btn btn-error">Rejected</button>:<button  className="btn btn-primary" onClick={()=>handelReject(req._id)}>Reject</button>
-                            }
-                            </>
-                         }
+        <div className="overflow-x-auto">
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr>
+    
+                       
+                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Experience</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
                         
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                }
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        techreq.map(req => (
+                            <tr>
+    
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={req.image} alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{req.name}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                 <td>
+                                 <p>Role: {req.title}</p>
+                                 </td>
+                                 <td>
+                                 <p>Role: {req.experience}</p>
+                                 </td>
+                                <td>
+                                    <p>Role: {req.email}</p>
+                                </td>
+                                <td>
+                                    {req.status}
+    
+    
+                                </td>
+                                
+                                <td>
+                                {
+                                req.status=='Rejected'?<></>:<>
+                                   {
+                                   req.status=='Accpted'?<button  className="btn btn-success" onClick={()=>handelAccped(req._id)}>Accepted</button>:<button  className="btn btn-primary" onClick={()=>handelAccped(req._id,req.email)}>Accept</button>
+                                }
+                                </>
+                             }
+                                   {
+                                req.status=='Accpted'?<></>:<>
+                                   {
+                                   req.status=='Rejected'?<button  className="btn btn-error">Rejected</button>:<button  className="btn btn-primary" onClick={()=>handelReject(req._id)}>Reject</button>
+                                }
+                                </>
+                             }
+                            
+                                </td>
+                            
+                               
+                            </tr>
+                        ))
+                    }
+    
+    
+                </tbody>
+    
+            </table>
         </div>
+    </div>
     );
 };
 
