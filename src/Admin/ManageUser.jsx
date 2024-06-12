@@ -14,27 +14,63 @@ const ManageUser = () => {
       })
     }
     return (
-        <div>
-            <div className='grid lg:grid-cols-3 grid-cols-1 gap-3'>
+      <div>
+    <div className="overflow-x-auto">
+        <table className="table">
+            {/* head */}
+            <thead>
+                <tr>
+
+                   
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Make Admin</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
                 {
-                    users?.filter(user=>user.role!=='teacher').map(user=>(
-                        <div key={user._id} className="card bg-base-100 shadow-xl">
-                        <figure><img src={user.image} alt={user.name} /></figure>
-                        <div className="card-body">
-                          <h2 className="card-title">{user.name}</h2>
-                          <p>{user.email}</p>
-                          <p>Role: {user.role}</p>
-                          <div className="card-actions justify-end">
-                          {
+                    users?.filter(user=>user.role!=='teacher').map(user => (
+                        <tr>
+
+                            <td>
+                                <div className="flex items-center gap-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={user.image} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="font-bold">{user.name}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                {user.email}
+
+
+                            </td>
+                            <td>
+                                <p>Role: {user.role}</p>
+                            </td>
+                            <td>
+                            {
                             user.role==='admin'?<button>Admin</button>:<button onClick={()=>handelStatusChange(user._id)} className='btn btn-primary'>Make Admin</button>
                           }
-                          </div>
-                        </div>
-                      </div>
+                            </td>
+                        
+                           
+                        </tr>
                     ))
                 }
-            </div>
-        </div>
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
     );
 };
 
