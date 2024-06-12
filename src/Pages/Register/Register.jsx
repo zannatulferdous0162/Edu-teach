@@ -36,7 +36,7 @@ const Register = () => {
            .then(data=>{console.log(data.data),toast.success('Success')})
         })
         .catch(error=>{console.log(error)
-        //    toast.error(error.message)
+            toast.error(error.message)
        })
      };
      console.log(errors);

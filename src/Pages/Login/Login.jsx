@@ -19,7 +19,8 @@ const Login = () => {
        navigate('/')
        toast.success('login success')
     })
-    .catch(error=>{console.log(error),toast.alert(error.message)})
+    .catch(error=>{console.log(error),toast.error(error.message)})
+
   };
   const handelGoogle=()=>{
     googleLogin()
