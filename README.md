@@ -14,8 +14,9 @@ bullet point ->
 .teacher request
 
 Admin ->
-email: zannatbba@gmail.com
-pass :2zanu1##
+zannatul17@gmail.com
+
+pass :zannatul17
 
 live link : https://edu-teach.netlify.app/
 
