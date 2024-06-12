@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import UseAxiosSecure from '../hooks/useAxiosSecure';
 
 const AllClass = () => {
-    const [allclass]=SetAllClass()
-    const [,refetch]=SetAllClass()
+    const [allclass,refetch]=SetAllClass()
+    
     console.log(allclass)
     const [axiosSecure]=UseAxiosSecure()
     const handelAccped=(ID)=>{
@@ -26,41 +26,75 @@ const AllClass = () => {
       })
     }
     return (
-        <div>
-        
-            <div className='grid lg:grid-cols-3 grid-cols-1 gap-3'>
-                {
-                    allclass.map(classes=>(
-                        <div key={classes._id} className="card bg-base-100 shadow-xl">
-                        <figure><img src={classes.image} alt="Shoes" /></figure>
-                        <div className="card-body">
-                          <h2 className="card-title">{classes.title}</h2>
-                          <p className='text-xl text-blue-500'>{classes.price}Tk</p>
-                          <p>{classes.description}</p>
-                          <p>Status: {classes.status}</p>
-                          <div className="card-actions justify-end">
-                         {
-                            classes.status=='Rejected'?<></>:<>
-                               {
-                               classes.status=='Accepted'?<button  className="btn btn-success" onClick={()=>handelAccped(classes._id)}>Accepted</button>:<button  className="btn btn-primary" onClick={()=>handelAccped(classes._id)}>Accept</button>
-                            }
-                            </>
-                         }
-                               {
-                            classes.status=='Accepted'?<></>:<>
-                               {
-                               classes.status=='Rejected'?<button  className="btn btn-error">Rejected</button>:<button  className="btn btn-primary" onClick={()=>handelReject(classes._id)}>Reject</button>
-                            }
-                            </>
-                         }
-                             <Link to={`/dashboard/progress/${classes._id}`}><button className="btn btn-primary">See Progress</button></Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                }
-            </div>
-        </div>
+      <div>
+      <div className="overflow-x-auto">
+          <table className="table">
+              {/* head */}
+              <thead>
+                  <tr>
+  
+                    
+                      <th>Title</th>
+                      <th>Price</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                      <th>Progress</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {
+                      allclass.map(feed => (
+                          <tr>
+  
+                              <td>
+                                  <div className="flex items-center gap-3">
+                                      <div className="avatar">
+                                          <div className="mask mask-squircle w-12 h-12">
+                                              <img src={feed.image} alt="Avatar Tailwind CSS Component" />
+                                          </div>
+                                      </div>
+                                      <div>
+                                          <div className="font-bold">{feed.title}</div>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>
+                                  {feed.price}
+  
+  
+                              </td>
+                              <td>
+                                  <p>Status: {feed.status}</p>
+                              </td>
+                              <td>
+                                  {
+                                      feed.status == 'Rejected' ? <></> : <>
+                                          {
+                                              feed.status == 'Accepted' ? <button className="btn btn-success" onClick={() => handelAccped(feed._id)}>Accepted</button> : <button className="btn btn-primary" onClick={() => handelAccped(feed._id)}>Accept</button>
+                                          }
+                                      </>
+                                  }
+                                  {
+                                      feed.status == 'Accepted' ? <></> : <>
+                                          {
+                                              feed.status == 'Rejected' ? <button className="btn btn-error">Rejected</button> : <button className="btn btn-primary" onClick={() => handelReject(feed._id)}>Reject</button>
+                                          }
+                                      </>
+                                  }
+                              </td>
+                              <td>
+                                  <Link to={`/dashboard/progress/${feed._id}`}><button className="btn btn-primary">See Progress</button></Link>
+                              </td>
+                          </tr>
+                      ))
+                  }
+  
+  
+              </tbody>
+  
+          </table>
+      </div>
+  </div>
     );
 };
 
