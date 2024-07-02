@@ -13,10 +13,12 @@ bullet point ->
 .course managment
 .teacher request
 
-Admin ->
-zannatul17@gmail.com
+use Technology :
 
-pass :zannatul17
+React Js
+Node Js
+Express Js
+Mongodb
 
 live link : https://edu-teach.netlify.app/
 
