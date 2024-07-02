@@ -18,7 +18,7 @@ use Technology :
 React Js
 Node Js
 Express Js
-Mongodb
+MongoDB
 
 live link : https://edu-teach.netlify.app/
 
